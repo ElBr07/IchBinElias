@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home – Elias Braun</title>
+    <script src="loadVersion.js"></script>
+    <!-- Globales Stylesheet – Root‑relativ -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="main-nav">
+
+            <!-- Logo (optional) -->
+            <div class="logo-placeholder" aria-label="Logo">
+                <img src="assets/icons/home.svg" alt="Home Icon" class="logo-icon">
+            </div>
+
+            <!-- ----------- DESKTOP‑MENÜ (sichtbar ab 1024 px) ----------- -->
+            <ul class="nav-links desktop">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="pages/about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="pages/skills.html" class="nav-link">SKILLS</a></li>
+                <li><a href="pages/portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="pages/contact.html" class="nav-link">CONTACT</a></li>
+            </ul>
+
+            <!-- ----------- HAMBURGER‑ICON (nur < 1024 px) ----------- -->
+            <button class="nav-toggle" aria-expanded="false" aria-label="Navigation öffnen">
+                <img class="nav-icon" src="assets/icons/menu.svg" alt="Menu" data-menu-src="assets/icons/menu.svg"
+                    data-close-src="assets/icons/arrow_drop_down.svg">
+            </button>
+
+            <!-- ----------- MOBILE‑MENÜ (versteckt, wird per JS eingeblendet) ----------- -->
+            <ul class="nav-links mobile">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="pages/about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="pages/skills.html" class="nav-link">SKILLS</a></li>
+                <li><a href="pages/portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="pages/contact.html" class="nav-link">CONTACT</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- ====================  MODUS‑WAHL (direkt unter Navbar) ==================== -->
+    <section id="mode-choice">
+        <div class="mode-box"><!--  ← neuer Wrapper -->
+            <h2>Willkommen! Möchtest du die Seite spielerisch erleben?</h2>
+            <button class="btn" id="yes-btn">Ja, lass uns spielen!</button>
+            <button class="btn" id="no-btn">Nein, ich will alles sofort sehen.</button>
+        </div>
+    </section>
+
+
+
+    <!-- ====================  HERO / HOME ==================== -->
+    <div class="Fp">
+        <section id="home1">
+            <div class="home">
+                <h2 style="color: rgb(27, 183, 204);">HI I'm</h2>
+                <h1 class="name"><span style="color:orangered;">E</span>lias Braun</h1>
+                <h3 style="color: aqua; font-size:28px;">
+                    Ich bin Web‑Learning‑Student,<br>
+                    <i class="fab fa-aws" style="font-size: larger; color: orange;"></i> Partner.
+                </h3>
+
+                <ul class="sci">
+                    <li><a href="https://www.facebook.com/deepak.sp.355" class="fac"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li><a href="https://t.me/+919790870300" class="tw"><i class="fab fa-telegram"></i></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- INFO‑SECTION (nach Modus‑Wahl) -->
+        <section id="info" class="hidden">
+            <h2>Punkte: <span id="points">0</span></h2>
+            <p>Entdecke neue Kacheln im Shop!</p>
+            <a href="#" id="shop-link" class="btn-primary">Shop</a>
+        </section>
+    </div>
+
+    <!-- ====================  FOOTER  ==================== -->
+    <footer class="site-footer">
+        <p>© 2025 – erstellt im Enrichment‑Kurs „Mit KI zur eigenen Website"</p>
+        <p>
+            <a href="impressum.html" target="_blank" rel="noopener noreferrer">Impressum</a>
+            <a href="impressum_eltern.html" target="_blank" rel="noopener noreferrer">Impressum verantwortliche
+                Eltern</a>
+        </p>
+    </footer>
+
+    <!-- Globales JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

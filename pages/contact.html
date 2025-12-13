@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact– Elias Braun</title>
+    <script src="../loadVersion.js"></script>
+
+    <!-- Globales CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+    <!-- ====================  GLASS‑NAVBAR  ==================== -->
+    <nav class="navbar">
+        <div class="main-nav">
+
+            <!-- Logo (optional) -->
+            <div class="logo-placeholder" aria-label="Logo">
+                <img src="../assets/icons/account_box.svg" alt="Account Icon" class="logo-icon">
+            </div>
+
+            <!-- ----------- DESKTOP‑MENÜ (sichtbar ab 1024 px) ----------- -->
+            <ul class="nav-links desktop">
+                <li><a href="../index.html" class="nav-link">HOME</a></li>
+                <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="skills.html" class="nav-link">SKILLS</a></li>
+                <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+            </ul>
+
+            <!-- ----------- HAMBURGER‑ICON (nur < 1024 px) ----------- -->
+            <button class="nav-toggle" aria-expanded="false" aria-label="Navigation öffnen">
+                <img class="nav-icon" src="../assets/icons/menu.svg" alt="Menu" data-menu-src="../assets/icons/menu.svg"
+                    data-close-src="../assets/icons/arrow_drop_down.svg">
+            </button>
+
+            <!-- ----------- MOBILE‑MENÜ (versteckt, wird per JS eingeblendet) ----------- -->
+            <ul class="nav-links mobile">
+                <li><a href="../index.html" class="nav-link">HOME</a></li>
+                <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="skills.html" class="nav-link">SKILLS</a></li>
+                <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="Fp">
+        <section id="contact">
+            <h2>Kontakt</h2>
+
+            <div class="contact-grid">
+                <!-- Linke Spalte: ausführliche Kontaktdaten (wird aus JSON befüllt) -->
+                <div id="contact-details" class="contact-details">
+                    <!-- Strukturbeispiel (wird dynamisch ersetzt):
+                    <div class="contact-row"><span class="icon-placeholder" data-field="email"></span><strong>E‑Mail:</strong> <a href="mailto:...">...</a></div>
+                    -->
+                    <p>Lade Kontakte ...</p>
+                </div>
+
+                <!-- Rechte Spalte: QR‑Code + vCard Download -->
+                <aside class="contact-qr-block">
+                    <div id="qr-container" class="qr-container">
+                        <img id="contact-qr" alt="QR Code mit Kontaktdaten" src="" />
+                    </div>
+                    <div class="qr-actions">
+                        <a id="download-vcard" class="btn" href="#" download="kontakt.vcf">vCard herunterladen</a>
+                        <button id="send-email" class="btn hidden" type="button">E‑Mail senden</button>
+                    </div>
+                    <p class="qr-help">Scanne den QR‑Code, um meine Kontaktdaten schnell zu übernehmen.</p>
+                </aside>
+            </div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2025 – erstellt im Enrichment‑Kurs „Mit KI zur eigenen Website"</p>
+        <p>
+            <a href="../impressum.html" target="_blank" rel="noopener noreferrer">Impressum</a>
+            <a href="../impressum_eltern.html" target="_blank" rel="noopener noreferrer">Impressum verantwortliche
+                Eltern</a>
+        </p>
+    </footer>
+
+    <script src="../assets/js/contact-render.js?v=2"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

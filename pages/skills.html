@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills – Elias Braun</title>
+    <script src="../loadVersion.js"></script>
+
+    <!-- Globales CSS -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- ====================  GLASS‑NAVBAR  ==================== -->
+    <nav class="navbar">
+        <div class="main-nav">
+
+            <!-- Logo (optional) -->
+            <div class="logo-placeholder" aria-label="Logo">
+                <img src="../assets/icons/computer.svg" alt="Computer Icon" class="logo-icon">
+            </div>
+
+            <!-- ----------- DESKTOP‑MENÜ (sichtbar ab 1024 px) ----------- -->
+            <ul class="nav-links desktop">
+                <li><a href="../index.html" class="nav-link">HOME</a></li>
+                <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="skills.html" class="nav-link">SKILLS</a></li>
+                <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+            </ul>
+
+            <!-- ----------- HAMBURGER‑ICON (nur < 1024 px) ----------- -->
+            <button class="nav-toggle" aria-expanded="false" aria-label="Navigation öffnen">
+                <img class="nav-icon" src="../assets/icons/menu.svg" alt="Menu" data-menu-src="../assets/icons/menu.svg"
+                    data-close-src="../assets/icons/arrow_drop_down.svg">
+            </button>
+
+            <!-- ----------- MOBILE‑MENÜ (versteckt, wird per JS eingeblendet) ----------- -->
+            <ul class="nav-links mobile">
+                <li><a href="../index.html" class="nav-link">HOME</a></li>
+                <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="skills.html" class="nav-link">SKILLS</a></li>
+                <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="Fp">
+        <section id="skills">
+            <div class="myskill">
+                <h1>My Skills</h1>
+
+                <!-- Beispiel‑Skill‑Balken -->
+                <div class="skill-item">
+                    <p>Godot</p>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:90%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <p>Flutter</p>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:75%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <p>React</p>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:60%;"></div>
+                    </div>
+                </div>
+
+                <!-- weitere Skills können hier ergänzt werden -->
+            </div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2025 – erstellt im Enrichment‑Kurs „Mit KI zur eigenen Website"</p>
+        <p>
+            <a href="../impressum.html" target="_blank" rel="noopener noreferrer">Impressum</a>
+            <a href="../impressum_eltern.html" target="_blank" rel="noopener noreferrer">Impressum verantwortliche
+                Eltern</a>
+        </p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

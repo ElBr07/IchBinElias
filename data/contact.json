@@ -1,0 +1,34 @@
+{
+  "fullName": "Elias Braun",
+  "givenName": "Elias",
+  "familyName": "Braun",
+  "jobTitle": "Softwareentwickler / Webentwickler",
+  "company": "Informatik AG an meiner Schule",
+  "street": "PlaceHolder",
+  "city": "PlaceHolder",
+  "region": "Schleswig-Holstein",
+  "postalCode": "PlaceHolder",
+  "country": "Deutschland",
+  "email": "elibraun2007+interresse@gmail.com",
+  "phone": "PlaceHolder",
+  "mobile": "PlaceHolder",
+  "website": "https://enrichment-knoop.github.io/meine-website-ElBr07/pages/skills.html",
+  "linkedin": "",
+  "github": "https://github.com/ElBr07",
+  "portfolio": "https://enrichment-knoop.github.io/meine-website-ElBr07/pages/portfolio.html",
+  "resumeUrl": "https://enrichment-knoop.github.io/meine-website-ElBr07/pages/about.html",
+  "availability": "Ab sofort, 4 Wochen Kündigungsfrist",
+  "desiredRole": "Frontend / Fullstack Entwickler",
+  "salaryExpectation": "Verhandelbar / 50.000 EUR Jahresbrutto (Beispiel)",
+  "languages": ["Deutsch (Muttersprache)", "Englisch"],
+  "preferredContact": "E‑Mail oder LinkedIn",
+  "notes": "Bevorzugte Arbeitsorte: Remote / Berlin. Referenzen auf Anfrage.",
+  "timezone": "Europe/Berlin",
+  "references": [
+    {
+      "name": "Elias Braun",
+      "role": "Programmierer",
+      "contact": "elibraun2007+interresse@gmail.com"
+    }
+  ]
+}
