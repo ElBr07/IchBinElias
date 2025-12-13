@@ -16,9 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
         points: 0,
         quests: {
             visitedSkills: false,
+            firstClick: false,
         },
         unlocks: {
             portfolio: false,
+            contact: false,
         }
     };
 
@@ -55,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function completeQuest(questName) {
+    function completeQuest(questName, pointsValue = 10) {
         if (gameState.playfulMode && !gameState.quests[questName]) {
             gameState.quests[questName] = true;
-            addPoints(10); // Award 10 points for completing a quest
+            addPoints(pointsValue);
             console.log(`Quest '${questName}' completed.`);
         }
     }
@@ -105,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Unlock content
         const portfolioLink = document.querySelector('a[href="pages/portfolio.html"]');
+        const contactLink = document.querySelector('a[href="pages/contact.html"]');
         if (portfolioLink) {
              if (unlocks.portfolio || !playfulMode) {
                 portfolioLink.classList.remove('locked');
@@ -116,6 +119,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 portfolioLink.style.pointerEvents = 'none';
                 portfolioLink.style.opacity = '0.5';
              }
+        }
+        if (contactLink) {
+            if (unlocks.contact || !playfulMode) {
+                contactLink.classList.remove('locked');
+                contactLink.style.pointerEvents = 'auto';
+                contactLink.style.opacity = '1';
+            } else {
+                contactLink.classList.add('locked');
+                contactLink.style.pointerEvents = 'none';
+                contactLink.style.opacity = '0.5';
+            }
         }
     }
     
@@ -153,6 +167,10 @@ document.addEventListener("DOMContentLoaded", () => {
         completeQuest('visitedSkills');
     });
 
+    document.addEventListener('click', () => {
+        completeQuest('firstClick', 5);
+    }, { once: true });
+
     // Shop listeners
     const shopModal = document.getElementById("shop-modal");
     const closeShopBtn = document.getElementById("close-shop");
@@ -173,19 +191,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Shop purchase listeners would go here
-    // Example:
-    // document.getElementById('buy-portfolio-btn')?.addEventListener('click', () => {
-    //     if (gameState.points >= 20) {
-    //         gameState.points -= 20;
-    //         gameState.unlocks.portfolio = true;
-    //         saveGameState();
-    //         updateUI();
-    //         showNotification('Portfolio freigeschaltet!');
-    //     } else {
-    //         showNotification('Nicht genug Punkte!');
-    //     }
-    // });
+    // Shop purchase listeners
+    document.getElementById('buy-portfolio-btn')?.addEventListener('click', () => {
+        if (gameState.points >= 20) {
+            gameState.points -= 20;
+            gameState.unlocks.portfolio = true;
+            saveGameState();
+            updateUI();
+            showNotification('Portfolio freigeschaltet!');
+        } else {
+            showNotification('Nicht genug Punkte!');
+        }
+    });
+
+    document.getElementById('buy-contact-btn')?.addEventListener('click', () => {
+        if (gameState.points >= 15) {
+            gameState.points -= 15;
+            gameState.unlocks.contact = true;
+            saveGameState();
+            updateUI();
+            showNotification('Kontaktdaten freigeschaltet!');
+        } else {
+            showNotification('Nicht genug Punkte!');
+        }
+    });
 
 
     // -----------------------------------------------------------------
