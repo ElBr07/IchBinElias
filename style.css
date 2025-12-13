@@ -414,7 +414,112 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+/* ========== SHOP MODAL ========== */
+.shop-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.shop-modal.hidden {
+    display: none !important;
+}
+
+.shop-modal-content {
+    position: relative;
+    background: rgba(20, 30, 50, 0.95);
+    border: 2px solid rgba(65, 105, 225, 0.5);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(65, 105, 225, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.shop-modal h2 {
+    color: #1bcedc;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.shop-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(65, 105, 225, 0.2);
+}
+
+.shop-section h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-section p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.points-display {
+    font-size: 1.2rem;
+    color: #1bcedc;
+    font-weight: bold;
+}
+
+.btn-shop {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+}
+
+.shop-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.shop-close:hover {
+    background: rgba(65, 105, 225, 0.3);
+    transform: scale(1.1);
 }
 
 #info {
@@ -643,16 +748,70 @@ body {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     text-align: center;
-    line-height: 35vh;
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
     transition: transform .2s, box-shadow .2s;
+    border: 1px solid rgba(65, 105, 225, 0.3);
+    overflow: hidden;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.project-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+}
+
+.projects1 h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: #1bcedc;
+}
+
+.projects1 p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #b0b0b0;
+}
+
+.project-tech {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tech-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: rgba(65, 105, 225, 0.2);
+    border: 1px solid rgba(65, 105, 225, 0.5);
+    color: #1bcedc;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+.projects1:hover .tech-badge {
+    background: rgba(65, 105, 225, 0.4);
+    border-color: rgba(65, 105, 225, 0.8);
 }
 
 .projects1:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 30px rgba(65, 105, 225, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(65, 105, 225, 0.6);
 }
 
 /* Mobile: projects should reflow without hard height constraints */
@@ -661,7 +820,6 @@ body {
         width: 90%;
         height: auto;
         min-height: 150px;
-        line-height: normal;
         padding: 1.5rem 1rem;
         display: flex;
         align-items: center;
@@ -952,10 +1110,55 @@ body {
 /* Avoid fixed background on touch devices — fixed backgrounds cause visual gaps
    while pinch/zooming on many mobile browsers (especially iOS). Use scroll on
    coarse-pointer / small viewports so the gradient remains continuous. */
-@media (pointer: coarse),
-(max-width: 900px) {
-    body {
-        background-attachment: scroll;
-        background-position: center bottom;
+/* --------------------------------------------------------------
+   10. Game-Related Styles
+   -------------------------------------------------------------- */
+.nav-link.locked {
+    opacity: 0.5;
+    pointer-events: none;
+    color: #888;
+}
+.nav-link.locked:hover {
+    transform: none;
+    box-shadow: none;
+    background: none;
+    color: #888;
+}
+.nav-link.locked::after {
+    width: 0;
+}
+
+.game-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #4169e1 0%, #1bcedc 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    font-size: 1rem;
+    font-weight: 600;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    15% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    85% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -20px);
     }
 }
