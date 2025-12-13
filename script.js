@@ -85,21 +85,33 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateUI() {
         const { playfulMode, points, unlocks } = gameState;
 
+        // Update shop UI if on shop page
+        updateShopUI();
+
         const modeChoice = document.getElementById("mode-choice");
         const infoSection = document.getElementById("info");
-        const portfolioSection = document.getElementById('portfolio'); // Assuming this is the ID for the portfolio section
+        const gameToggle = document.getElementById('game-mode-toggle');
+        const gameToggleBanner = document.getElementById('game-mode-banner');
 
         // Show/hide mode choice banner
         if (modeChoice) {
             modeChoice.style.display = playfulMode === null ? 'flex' : 'none';
         }
         
+        if (gameToggleBanner) {
+            gameToggleBanner.style.display = playfulMode !== null ? 'block' : 'none';
+        }
+
+        if (gameToggle) {
+            gameToggle.checked = playfulMode;
+        }
+
+        
         // Show/hide info section with points
         if (infoSection) {
             if (playfulMode) {
                 infoSection.style.display = 'block';
                 document.getElementById('points').textContent = points;
-                document.getElementById('points-shop').textContent = points;
             } else if (playfulMode === false) {
                  infoSection.style.display = 'none';
             }
@@ -131,6 +143,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 contactLink.style.opacity = '0.5';
             }
         }
+    }
+
+    // Event listener for the game mode toggle
+    const gameModeToggle = document.getElementById('game-mode-toggle');
+    if (gameModeToggle) {
+        gameModeToggle.addEventListener('change', (e) => {
+            gameState.playfulMode = e.target.checked;
+            if (!gameState.playfulMode) {
+                unlockEverything();
+            }
+            saveGameState();
+            updateUI();
+        });
+    }
+
+    function updateShopUI() {
+        const points = gameState.points;
+        const pointsDisplay = document.getElementById('points-shop');
+        if (pointsDisplay) {
+            pointsDisplay.textContent = points;
+        }
+
+        const shopItems = document.querySelectorAll('.shop-item-card');
+        shopItems.forEach(item => {
+            const cost = parseInt(item.dataset.cost, 10);
+            const buyButton = item.querySelector('.btn-shop');
+
+            if (points >= cost) {
+                item.classList.remove('unavailable');
+                if (buyButton) {
+                    buyButton.disabled = false;
+                }
+            } else {
+                item.classList.add('unavailable');
+                if (buyButton) {
+                    buyButton.disabled = true;
+                }
+            }
+        });
     }
     
     function showNotification(message) {

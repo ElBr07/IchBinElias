@@ -1,17 +1,140 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
+    <title>Shop – Elias Braun</title>
+    <script src="../loadVersion.js"></script>
+
+    <!-- Globales CSS -->
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Shop</h1>
-    </header>
-    <main>
-        <p>Hier finden Sie bald meine Produkte.</p>
-    </main>
+
+    <!-- ====================  GLASS‑NAVBAR  ==================== -->
+    <nav class="navbar">
+        <div class="main-nav">
+
+            <!-- Logo -->
+            <div class="logo-placeholder" aria-label="Logo">
+                <img src="../assets/icons/joystick.svg" alt="Shop Icon" class="logo-icon">
+            </div>
+
+            <!-- ----------- DESKTOP‑MENÜ ----------- -->
+            <ul class="nav-links desktop">
+                <li><a href="../index.html" class="nav-link">HOME</a></li>
+                <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="skills.html" class="nav-link">SKILLS</a></li>
+                <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="shop.html" class="nav-link active">SHOP</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+            </ul>
+
+            <!-- ----------- HAMBURGER‑ICON ----------- -->
+            <button class="nav-toggle" aria-expanded="false" aria-label="Navigation öffnen">
+                <img class="nav-icon" src="../assets/icons/menu.svg" alt="Menu" data-menu-src="../assets/icons/menu.svg"
+                    data-close-src="../assets/icons/arrow_drop_down.svg">
+            </button>
+
+            <!-- ----------- MOBILE‑MENÜ ----------- -->
+            <ul class="nav-links mobile">
+                <li><a href="../index.html" class="nav-link">HOME</a></li>
+                <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="skills.html" class="nav-link">SKILLS</a></li>
+                <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="shop.html" class="nav-link active">SHOP</a></li>
+                <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- ====================  SHOP CONTENT  ==================== -->
+    <div class="shop-page-container">
+        <header class="shop-header">
+            <h1>🛍️ Willkommen im Shop</h1>
+            <p>Tausche deine gesammelten Punkte gegen coole Features und Anpassungen!</p>
+            <div class="points-display">
+                Deine Punkte: <span id="points-shop">100</span>
+            </div>
+        </header>
+
+        <main class="shop-grid">
+
+            <!-- Item 1: Dark Mode -->
+            <div class="shop-item-card" data-cost="50">
+                <h3>Dunkles Design</h3>
+                <p class="item-description">Ein augenfreundliches, dunkles Farbschema für die gesamte Website.</p>
+                <div class="item-buy-area">
+                    <span class="item-price">Kosten: 50 Punkte</span>
+                    <button class="btn btn-shop" id="buy-dark-mode">Kaufen</button>
+                </div>
+            </div>
+
+            <!-- Item 2: Neon Style -->
+            <div class="shop-item-card" data-cost="50">
+                <h3>80er Neon-Stil</h3>
+                <p class="item-description">Ein auffälliges Design mit leuchtenden Neonfarben. Retro-Feeling pur!</p>
+                <div class="item-buy-area">
+                    <span class="item-price">Kosten: 75 Punkte</span>
+                    <button class="btn btn-shop" id="buy-neon-style">Kaufen</button>
+                </div>
+            </div>
+
+            <!-- Item 3: Auto-Clicker -->
+            <div class="shop-item-card" data-cost="50">
+                <h3>Auto-Clicker</h3>
+                <p class="item-description">Zu faul zum Klicken? Dieser Helfer sammelt automatisch Punkte für dich.</p>
+                <div class="item-buy-area">
+                    <span class="item-price">Kosten: 200 Punkte</span>
+                    <button class="btn btn-shop" id="buy-autoclicker">Kaufen</button>
+                </div>
+            </div>
+            
+            <!-- Item 4: Geheimen Bereich freischalten -->
+            <div class="shop-item-card" data-cost="50">
+                <h3>Geheimen Bereich freischalten</h3>
+                <p class="item-description">Schalte einen versteckten Bereich auf der Website mit exklusiven Inhalten frei.</p>
+                <div class="item-buy-area">
+                    <span class="item-price">Kosten: 150 Punkte</span>
+                    <button class="btn btn-shop" id="buy-secret-area">Kaufen</button>
+                </div>
+            </div>
+
+            <!-- Item 5: Maus-Spur-Effekt -->
+            <div class="shop-item-card" data-cost="50">
+                <h3>Maus-Spur-Effekt</h3>
+                <p class="item-description">Fügt deinem Mauszeiger einen coolen Partikel-Effekt hinzu.</p>
+                <div class="item-buy-area">
+                    <span class="item-price">Kosten: 100 Punkte</span>
+                    <button class="btn btn-shop" id="buy-mouse-trail">Kaufen</button>
+                </div>
+            </div>
+            
+            <!-- Item 6: Spezieller Avatar-Rahmen -->
+            <div class="shop-item-card" data-cost="50">
+                <h3>Avatar-Rahmen "Gold"</h3>
+                <p class="item-description">Zeige deinen Status mit einem exklusiven goldenen Rahmen um dein Profilbild.</p>
+                <div class="item-buy-area">
+                    <span class="item-price">Kosten: 300 Punkte</span>
+                    <button class="btn btn-shop" id="buy-avatar-frame" disabled>Ausverkauft</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ====================  FOOTER  ==================== -->
+    <footer class="site-footer">
+        <p>© 2025 Elias Braun</p>
+        <p>
+            <a href="../impressum.html" target="_blank" rel="noopener noreferrer">Impressum</a>
+        </p>
+    </footer>
+
+    <script src="../script.js"></script>
 </body>
+
 </html>

@@ -27,6 +27,7 @@
                 <li><a href="pages/about.html" class="nav-link">ABOUT</a></li>
                 <li><a href="pages/skills.html" class="nav-link">SKILLS</a></li>
                 <li><a href="pages/portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="pages/shop.html" class="nav-link">SHOP</a></li>
                 <li><a href="pages/contact.html" class="nav-link">CONTACT</a></li>
             </ul>
 
@@ -42,6 +43,7 @@
                 <li><a href="pages/about.html" class="nav-link">ABOUT</a></li>
                 <li><a href="pages/skills.html" class="nav-link">SKILLS</a></li>
                 <li><a href="pages/portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="pages/shop.html" class="nav-link">SHOP</a></li>
                 <li><a href="pages/contact.html" class="nav-link">CONTACT</a></li>
             </ul>
 
@@ -56,6 +58,15 @@
             <button class="btn" id="no-btn">Nein, ich will alles sofort sehen.</button>
         </div>
     </section>
+
+    <!-- ====================  GAME MODE BANNER ==================== -->
+    <div id="game-mode-banner" style="display: none; text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; margin: 1rem auto; max-width: 600px;">
+        <p>Du kannst den Spielmodus jederzeit an- oder ausschalten.</p>
+        <label for="game-mode-toggle">
+            <input type="checkbox" id="game-mode-toggle">
+            Spielmodus aktiv
+        </label>
+    </div>
 
     <!-- ====================  SHOP MODAL  ==================== -->
     <div id="shop-modal" class="shop-modal hidden">
@@ -114,13 +125,6 @@
                     <li><a href="https://t.me/+919790870300" class="tw"><i class="fab fa-telegram"></i></a></li>
                 </ul>
             </div>
-        </section>
-
-        <!-- INFO‑SECTION (nach Modus‑Wahl) -->
-        <section id="info" class="hidden">
-            <h2>Punkte: <span id="points">0</span></h2>
-            <p>Entdecke neue Kacheln im Shop!</p>
-            <a href="#" id="shop-link" class="btn-primary">Shop</a>
         </section>
     </div>
 

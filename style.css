@@ -1162,3 +1162,127 @@ body {
         transform: translate(-50%, -20px);
     }
 }
+
+/* --------------------------------------------------------------
+   11. Shop Page Styles
+   -------------------------------------------------------------- */
+
+.shop-page-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.shop-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(65, 105, 225, 0.2);
+}
+
+.shop-header h1 {
+    color: #1bcedc;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-header p {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.shop-item-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(65, 105, 225, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.shop-item-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(65, 105, 225, 0.6);
+    box-shadow: 0 12px 30px rgba(65, 105, 225, 0.2);
+}
+
+.shop-item-card h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.shop-item-card .item-description {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.item-buy-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.item-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1bcedc;
+}
+
+.btn-shop {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    background: var(--accent-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-shop:hover:not(:disabled) {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+    transform: scale(1.03);
+}
+
+.btn-shop:disabled {
+    background: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.shop-item-card.unavailable {
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+
+.shop-item-card.unavailable .btn-shop {
+    cursor: not-allowed;
+    background: #555;
+}
+
+@media (max-width: 768px) {
+    .shop-header h1 {
+        font-size: 2rem;
+    }
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+}
