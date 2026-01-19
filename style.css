@@ -3,7 +3,7 @@
    -------------------------------------------------------------- */
 @font-face {
     font-family: "GoogleSansCode";
-    src: url("../assets/font/GoogleSansCode/GoogleSansCode-VariableFont_wght.ttf") format("truetype-variations");
+    src: url("assets/font/GoogleSansCode/GoogleSansCode-VariableFont_wght.ttf") format("truetype-variations");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -12,7 +12,7 @@
 /* Deaktiviert: Lavishly Yours Font
 @font-face {
     font-family: "LavishlyYours";
-    src: url("../assets/font/Lavishly_Yours/LavishlyYours-Regular.ttf") format("truetype");
+    src: url("assets/font/Lavishly_Yours/LavishlyYours-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -1118,12 +1118,14 @@ body {
     pointer-events: none;
     color: #888;
 }
+
 .nav-link.locked:hover {
     transform: none;
     box-shadow: none;
     background: none;
     color: #888;
 }
+
 .nav-link.locked::after {
     width: 0;
 }
@@ -1144,19 +1146,36 @@ body {
     animation: fadeInOut 3s ease-in-out;
 }
 
+/* Theme-Support für Benachrichtigungen */
+body.theme-dark .game-notification {
+    background: linear-gradient(90deg, #9400d3 0%, #4b0082 100%);
+    box-shadow: 0 4px 20px rgba(148, 0, 211, 0.4);
+}
+
+body.theme-neon .game-notification {
+    background: #000;
+    color: var(--accent-blue);
+    border: 1px solid var(--accent-blue);
+    box-shadow: 0 0 10px var(--accent-blue);
+    font-family: 'Courier New', Courier, monospace;
+}
+
 @keyframes fadeInOut {
     0% {
         opacity: 0;
         transform: translate(-50%, 20px);
     }
+
     15% {
         opacity: 1;
         transform: translate(-50%, 0);
     }
+
     85% {
         opacity: 1;
         transform: translate(-50%, 0);
     }
+
     100% {
         opacity: 0;
         transform: translate(-50%, -20px);
@@ -1282,7 +1301,239 @@ body {
     .shop-header h1 {
         font-size: 2rem;
     }
+
     .shop-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* --------------------------------------------------------------
+   12. Gamification Styles
+   -------------------------------------------------------------- */
+
+/* Play Mode Banner on Home Page */
+.game-banner {
+    padding: 1.5rem;
+    margin: 0 auto 2rem auto;
+    max-width: 800px;
+    background: rgba(27, 39, 53, 0.7);
+    border: 1px solid rgba(65, 105, 225, 0.3);
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.game-banner h2 {
+    color: var(--accent-blue);
+    margin-bottom: 0.5rem;
+}
+
+.game-banner p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Toggle Switch for Play Mode */
+.play-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: var(--accent-blue);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--accent-blue);
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+/* Shop Item States */
+.shop-item-card.cannot-afford {
+    filter: grayscale(80%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.shop-item-card.cannot-afford .btn-shop {
+    background: #666;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.shop-item.purchased {
+    border-color: #1bcedc;
+    box-shadow: 0 0 15px rgba(27, 206, 220, 0.3);
+}
+
+.shop-item.purchased .btn-shop {
+    background: #1bcedc;
+    color: #0b0e14;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* --------------------------------------------------------------
+   13. Purchasable Themes
+   -------------------------------------------------------------- */
+
+/* ----- Dark Theme ----- */
+body.theme-dark {
+    --bg-color: #000000;
+    --text-color: #f0f0f0;
+    --accent-blue: #9400d3;
+    /* DarkViolet */
+    background: radial-gradient(circle at bottom, #1a001a 0%, #000000 100%);
+}
+
+body.theme-dark .navbar {
+    background: rgba(10, 10, 10, 0.5);
+}
+
+body.theme-dark .nav-link:hover {
+    box-shadow: 0 16px 35px rgba(148, 0, 211, 0.55);
+    background: radial-gradient(circle at top left, #9400d3, #4b0082);
+}
+
+body.theme-dark .nav-link::after {
+    background: linear-gradient(90deg, #9400d3, #8a2be2);
+}
+
+body.theme-dark .skill-level {
+    background: linear-gradient(90deg, #9400d3 0%, #4b0082 100%);
+}
+
+
+/* ----- Neon Theme ----- */
+body.theme-neon {
+    --bg-color: #000000;
+    --text-color: #f0f0f0;
+    --accent-blue: #ff00ff;
+    /* Fuchsia */
+
+    background: #000;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body.theme-neon .navbar,
+body.theme-neon .shop-header,
+body.theme-neon .shop-item-card,
+body.theme-neon .skill-card,
+body.theme-neon .game-banner {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 10px var(--accent-blue), 0 0 20px var(--accent-blue) inset;
+}
+
+body.theme-neon h1,
+body.theme-neon h2,
+body.theme-neon h3,
+body.theme-neon .nav-link {
+    color: var(--accent-blue);
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--accent-blue), 0 0 30px var(--accent-blue);
+}
+
+body.theme-neon .nav-link:hover {
+    color: #fff;
+    background: var(--accent-blue);
+    box-shadow: 0 0 15px var(--accent-blue);
+}
+
+/* --------------------------------------------------------------
+   14. Mouse Trail Effect
+   -------------------------------------------------------------- */
+#mouse-trail-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.mouse-trail-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px var(--accent-blue);
+    transition: opacity 0.1s linear;
+}
+
+.shop-item-card.active {
+    box-shadow: 0 0 15px 5px #1bcedc, 0 0 30px 10px rgba(27, 206, 220, 0.5);
+    border-color: #1bcedc;
+}
+
+/* Fix für Neon-Theme: Damit man sieht, was ausgewählt ist */
+body.theme-neon .shop-item-card.active {
+    box-shadow: 0 0 15px 5px #1bcedc, 0 0 30px 10px rgba(27, 206, 220, 0.5), 0 0 20px var(--accent-blue) inset;
+    border-color: #1bcedc;
+}
+
+/* --------------------------------------------------------------
+   15. Themed Notifications
+   -------------------------------------------------------------- */
+body.theme-dark .game-notification {
+    background: linear-gradient(90deg, #9400d3 0%, #4b0082 100%);
+    box-shadow: 0 4px 20px rgba(148, 0, 211, 0.4);
+}
+
+body.theme-neon .game-notification {
+    background: var(--accent-blue);
+    color: #fff;
+    border: 1px solid var(--accent-blue);
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--accent-blue);
+    box-shadow: 0 0 10px var(--accent-blue), 0 0 15px var(--accent-blue) inset;
 }

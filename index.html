@@ -27,8 +27,8 @@
                 <li><a href="pages/about.html" class="nav-link">ABOUT</a></li>
                 <li><a href="pages/skills.html" class="nav-link">SKILLS</a></li>
                 <li><a href="pages/portfolio.html" class="nav-link">PORTFOLIO</a></li>
-                <li><a href="pages/shop.html" class="nav-link">SHOP</a></li>
                 <li><a href="pages/contact.html" class="nav-link">CONTACT</a></li>
+                <li><a href="pages/shop.html" class="nav-link">SHOP</a></li>
             </ul>
 
             <!-- ----------- HAMBURGER‑ICON (nur < 1024 px) ----------- -->
@@ -43,67 +43,25 @@
                 <li><a href="pages/about.html" class="nav-link">ABOUT</a></li>
                 <li><a href="pages/skills.html" class="nav-link">SKILLS</a></li>
                 <li><a href="pages/portfolio.html" class="nav-link">PORTFOLIO</a></li>
-                <li><a href="pages/shop.html" class="nav-link">SHOP</a></li>
                 <li><a href="pages/contact.html" class="nav-link">CONTACT</a></li>
+                <li><a href="pages/shop.html" class="nav-link">SHOP</a></li>
             </ul>
 
         </div>
     </nav>
 
-    <!-- ====================  MODUS‑WAHL (direkt unter Navbar) ==================== -->
-    <section id="mode-choice">
-        <div class="mode-box"><!--  ← neuer Wrapper -->
-            <h2>Willkommen! Möchtest du die Seite spielerisch erleben?</h2>
-            <button class="btn" id="yes-btn">Ja, lass uns spielen!</button>
-            <button class="btn" id="no-btn">Nein, ich will alles sofort sehen.</button>
-        </div>
-    </section>
-
     <!-- ====================  GAME MODE BANNER ==================== -->
-    <div id="game-mode-banner" style="display: none; text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px; margin: 1rem auto; max-width: 600px;">
-        <p>Du kannst den Spielmodus jederzeit an- oder ausschalten.</p>
-        <label for="game-mode-toggle">
-            <input type="checkbox" id="game-mode-toggle">
-            Spielmodus aktiv
-        </label>
-    </div>
-
-    <!-- ====================  SHOP MODAL  ==================== -->
-    <div id="shop-modal" class="shop-modal hidden">
-        <div class="shop-modal-content">
-            <button id="close-shop" class="shop-close">✕</button>
-            <h2>🛍️ Shop</h2>
-
-            <div class="shop-section">
-                <h3>Spielmodus</h3>
-                <p>Wechsel zwischen Spielmodus und normalem Modus</p>
-                <button id="mode-toggle-btn" class="btn btn-shop">🎮 Spielmodus aktivieren</button>
-            </div>
-
-            <div class="shop-section">
-                <h3>Deine Punkte</h3>
-                <p class="points-display">Punkte: <span id="points-shop">0</span></p>
-            </div>
-
-            <div class="shop-section">
-                <h3>Items freischalten</h3>
-                <div class="shop-item" id="shop-item-portfolio">
-                    <h4>Portfolio</h4>
-                    <p>Schalte meine Projekte frei, um zu sehen, woran ich gearbeitet habe.</p>
-                    <div class="shop-item-buy">
-                        <span>Kosten: 20 Punkte</span>
-                        <button id="buy-portfolio-btn" class="btn btn-shop">Kaufen</button>
-                    </div>
-                </div>
-                <div class="shop-item" id="shop-item-contact">
-                    <h4>Kontaktdaten</h4>
-                    <p>Schalte meine Kontaktdaten frei, um direkt mit mir in Verbindung zu treten.</p>
-                    <div class="shop-item-buy">
-                        <span>Kosten: 15 Punkte</span>
-                        <button id="buy-contact-btn" class="btn btn-shop">Kaufen</button>
-                    </div>
-                </div>
-            </div>
+    <div class="game-banner">
+        <h2>Du bist im Spielmodus!</h2>
+        <p>Erkunde die Seite, sammle Punkte für Aktionen und schalte im <a href="pages/shop.html">Shop</a> neue Bereiche
+            und Features frei. Oder schalte den Spielmodus aus, um alles direkt zu sehen.</p>
+        <div class="play-mode-toggle">
+            <span>Spielmodus deaktivieren</span>
+            <label class="switch">
+                <input type="checkbox" id="play-mode-toggle-switch" checked>
+                <span class="slider"></span>
+            </label>
+            <span>Spielmodus aktivieren</span>
         </div>
     </div>
 
@@ -136,6 +94,8 @@
         </p>
     </footer>
 
+    <!-- Gamification Engine -->
+    <script src="assets/js/game.js"></script>
     <!-- Globales JavaScript -->
     <script src="script.js"></script>
 </body>
